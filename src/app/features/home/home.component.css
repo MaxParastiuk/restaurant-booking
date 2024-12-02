@@ -1,4 +1,4 @@
-.custom-container {
+:host .custom-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -9,4 +9,5 @@
   border-radius: 12px; /* Закругленные углы */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Тень для глубины */
   max-width: 900px; /* Максимальная ширина для центрирования */
+  flex-direction: column;
 }
