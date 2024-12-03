@@ -4,7 +4,7 @@ import { catchError, Observable, of, Subscription } from 'rxjs';
 import { SearchResultService } from './search-results.service';
 
 @Component({
-  selector: 'app-search-result-list',
+  selector: 'app-search-results',
   templateUrl: './search-results.component.html',
   styleUrls: ['./search-results.component.css'],
 })
