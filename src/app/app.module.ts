@@ -17,6 +17,8 @@ import { SearchResultItemComponent } from './features/home/search-results/search
 import { BookingComponent } from './features/booking/booking.component';
 import { RestaurantComponent } from './features/restaurant/restaurant.component';
 import { CommentComponent } from './features/restaurant/comment/comment.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -36,6 +38,8 @@ import { CommentComponent } from './features/restaurant/comment/comment.componen
     HttpClientModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
+    ReactiveFormsModule,
+    MatIconModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
