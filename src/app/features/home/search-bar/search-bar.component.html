@@ -1,33 +1,102 @@
-<div class="text-center">
-  <label id="name">Search</label>
-  <input name="search" id="search" type="search" />
-  <button>Search</button>
-</div>
-<div>
-  <div class="d-flex flex-row flex-wrap justify-content-center">
-    <div>
-      <label for="opened">Opened</label>
-      <input type="checkbox" name="opened" id="opened" />
-    </div>
-    <div>
-      <ul>
-        <li>type of cousine</li>
-      </ul>
-    </div>
-    <div>
-      <ul>
-        <li>price 1000-2000$</li>
-      </ul>
-    </div>
-    <div>
-      <ul>
-        <li>types of restaurant</li>
-      </ul>
-    </div>
-    <div>
-      <ul>
-        <li>Specialties</li>
-      </ul>
-    </div>
+<form [formGroup]="form">
+  <div
+    class="text-center d-flex gap-3 flex-row flex-wrap justify-content-center align-items-center"
+  >
+    <label id="name">Search</label>
+    <input formControlName="search" name="search" id="search" type="search" />
+    <button class="button px-4 py-2" type="submit">Search</button>
   </div>
-</div>
+  <ul
+    class="d-flex flex-row flex-wrap justify-content-center align-items-center col-gap-2 my-2"
+  >
+    <div class="form-check col-2-fx">
+      <input
+        formControlName="isOpen"
+        type="checkbox"
+        name="opened"
+        id="is-open"
+        class="form-check-input"
+      />
+      <label for="is-open" class="form-check-label">currently open</label>
+    </div>
+    <li class="col-2-fx text-center">
+      <a href="#">cuisine<i class="material-icons">keyboard_arrow_down</i></a>
+    </li>
+    <li class="col-2-fx text-center">
+      <a href="#"
+        >price ragne<i class="material-icons">keyboard_arrow_down</i></a
+      >
+    </li>
+    <li class="col-2-fx text-center">
+      <a href="#">type<i class="material-icons">keyboard_arrow_down</i></a>
+    </li>
+    <li class="col-2-fx text-center">
+      <a href="#"
+        >specialties<i class="material-icons">keyboard_arrow_down</i></a
+      >
+    </li>
+    <!-- <div
+      class="d-flex flex-column justify-content-center align-items-center col-2-fx"
+    >
+      <label for="select-cuisine">Cuisine:</label>
+      <select
+        formControlName="cuisine"
+        id="select-cuisine"
+        class="selection-container form-control"
+        multiple
+      >
+        <option>cusine</option>
+        <option>chine</option>
+      </select>
+    </div>
+    <div
+      class="d-flex flex-column justify-content-center align-items-center col-2-fx"
+    >
+      <label for="select-price">Price ragne:</label>
+      <select
+        id="select-price"
+        class="selection-container"
+        formControlName="priceRange"
+      >
+        <option>500$-1000$</option>
+        <option>1000$-1500$</option>
+      </select>
+    </div>
+    <div
+      class="d-flex flex-column justify-content-center align-items-center col-2-fx"
+    >
+      <label for="select-type">Type: </label>
+      <select
+        formControlName="type"
+        id="select-type"
+        class="selection-container"
+        multiple
+      >
+        <option>in hotel</option>
+        <option>restaurant</option>
+        <option>countryside</option>
+        <option>catering</option>
+        <option>premium</option>
+      </select>
+    </div>
+    <div
+      class="d-flex flex-column justify-content-center align-items-center col-3"
+    >
+      <label for="select-specialties">Specialties: </label>
+      <select
+        formControlName="specialties"
+        id="select-specialties"
+        class="selection-container"
+        multiple
+      >
+        <option>kids menu</option>
+        <option>live music</option>
+        <option>children's playroom</option>
+        <option>pianist</option>
+        <option>wine cellar</option>
+        summer terrace paid parking free parking dog friendly waterfront
+        location open kitchen sommelier
+      </select>
+    </div> -->
+  </ul>
+</form>

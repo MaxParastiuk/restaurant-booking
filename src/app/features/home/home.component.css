@@ -4,8 +4,8 @@
   align-items: center;
   padding: 15px 30px;
   margin: 20px auto; /* Центрирование с отступом сверху */
-  background-color: #8e2de2; /* Тёплый фиолетовый цвет */
-  color: #fff;
+  background-color: #c8c8c8; /* Тёплый фиолетовый цвет */
+  color: #000;
   border-radius: 12px; /* Закругленные углы */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Тень для глубины */
   max-width: 900px; /* Максимальная ширина для центрирования */

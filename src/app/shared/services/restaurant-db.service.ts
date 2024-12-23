@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
+import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { catchError, Observable, of } from 'rxjs';
 import { Restaurant } from 'src/app/models/restaurant.model';
-import { AngularFireDatabase } from '@angular/fire/compat/database';
 
 @Injectable({
   providedIn: 'root',
 })
-export class SearchResultService {
+export class RestaurantDbService {
   constructor(private db: AngularFireDatabase) {}
 
   getRestaurants(): Observable<Restaurant[]> {
