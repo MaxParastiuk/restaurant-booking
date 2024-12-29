@@ -8,7 +8,6 @@ import { RestaurantDbService } from 'src/app/shared/services/restaurant-db.servi
   providedIn: 'root',
 })
 export class FilterService {
-  filterOptions!: Record<string, string[]>;
   constructor(private dbService: RestaurantDbService) {}
 
   getRestaurantFilters() {
@@ -41,8 +40,7 @@ export class FilterService {
         selectedFilters[option] = selectedProperies;
       }
 
-      console.log(selectedFilters, 'this.selectedFilters');
-      console.log('HAVE TO BE DONE');
+      // NEED TO BE IMPROVED
     });
     return selectedFilters;
   }
