@@ -19,6 +19,7 @@ import { RestaurantComponent } from './features/restaurant/restaurant.component'
 import { CommentComponent } from './features/restaurant/comment/comment.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
+import { CamelCaseToWordsPipe } from './shared/pipes/camel-case-to-words.pipe';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { MatIconModule } from '@angular/material/icon';
     SearchResultItemComponent,
     SearchResultComponent,
     BookingComponent,
+    CamelCaseToWordsPipe,
   ],
   imports: [
     BrowserModule,

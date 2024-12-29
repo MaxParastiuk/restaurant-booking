@@ -40,13 +40,28 @@ a,
 a:visited,
 a:hover,
 a:active {
-  text-decoration: none; /* Убирает подчеркивание */
-  color: inherit; /* Наследует цвет родительского элемента */
-  outline: none; /* Убирает обводку */
+  text-decoration: none;
+  color: inherit;
+  outline: none;
 }
 ul {
-  list-style-type: none; /* Убирает маркеры */
-  padding-left: 0; /* Убирает отступ слева (если нужно) */
+  list-style-type: none;
+  padding-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  font-family: inherit;
+  line-height: 1.4;
+}
+
+button {
+  all: unset;
+  cursor: pointer;
 }
 .logo {
   font-size: 24px;
@@ -55,7 +70,7 @@ ul {
 
 .button {
   padding: 10px 20px;
-  background-color: #7780b8; /* Легкий оттенок фиолетового */
+  background-color: #7780b8;
   color: #fff;
   border: none;
   border-radius: 6px;
@@ -72,5 +87,11 @@ ul {
   width: 100%;
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
