@@ -1,1 +1,18 @@
-<p>search-result-item works!</p>
+<div class="img-container">
+  <img [src]="restaurant.img" />
+</div>
+
+<div class="restaurant-descritpion">
+  <p class="price">{{ restaurant.priceRange }}</p>
+  <div class="title">
+    <p>{{ restaurant.name }}</p>
+  </div>
+  <!-- need to be calculated based on price  -->
+
+  <div class="restInfo">
+    <!-- need to be calculated based on restaurant.review.rating  -->
+    <div class="review">4.0</div>
+    <p>{{ restaurant.address }}</p>
+    <p>{{ restaurant.cuisineType }}</p>
+  </div>
+</div>

@@ -10,3 +10,18 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Тень для глубины */
   max-width: 900px; /* Максимальная ширина для центрирования */
 }
+.col-2-fx {
+  width: 100%;
+  flex-basis: 16.6%;
+}
+.col-gap-2 {
+  gap: 1.6%;
+}
+
+.col-3-fx {
+  width: 100%;
+  flex-basis: 20%;
+}
+.col-gap-3 {
+  gap: 6.6%;
+}

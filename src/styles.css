@@ -93,5 +93,21 @@ body {
 }
 body {
   margin: 0;
-  font-family: Roboto, 'Helvetica Neue', sans-serif;
+  font-family: 'Inter Tight', serif;
+}
+
+.col-2-fx {
+  width: 100%;
+  flex-basis: 16.6%;
+}
+.col-gap-2 {
+  gap: 1.6%;
+}
+
+.col-3-fx {
+  width: 100%;
+  flex-basis: 20%;
+}
+.col-gap-3 {
+  gap: 6.6%;
 }
