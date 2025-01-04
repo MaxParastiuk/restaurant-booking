@@ -12,3 +12,27 @@
   max-width: 900px; /* Максимальная ширина для центрирования */
   flex-direction: column;
 }
+.col-3-result {
+  width: 100%;
+  flex-basis: 31.16%;
+}
+
+.col-3-gap-result {
+  gap: 3.25%;
+  row-gap: 20px;
+}
+
+.card-item {
+  cursor: pointer;
+  max-height: 340px;
+  background: linear-gradient(12deg, #e7eeeb, #6a7567);
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.8s;
+}
+.card-item:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}

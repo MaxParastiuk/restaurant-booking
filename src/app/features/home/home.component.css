@@ -10,3 +10,12 @@
   max-width: 900px; /* Максимальная ширина для центрирования */
   flex-direction: column;
 }
+
+.col-3-result {
+  width: 100%;
+  flex-basis: 25%;
+}
+
+.col-3-gap-result {
+  flex-gap: 12.5%;
+}

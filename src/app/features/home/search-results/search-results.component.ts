@@ -19,9 +19,16 @@ export class SearchResultComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.restaurantsSubscription = this.resultSerivce
       .getRestaurants()
-      .subscribe((data) => {
-        this.restaurants = data;
-        console.log(this.restaurants);
+      .subscribe({
+        next: (data) => {
+          this.restaurants = data;
+          this.isLoading = false;
+        },
+        error: (err) => {
+          console.error(err);
+          this.errorMessage = 'Error during loading restaurants';
+          this.isLoading = false;
+        },
       });
   }
 
