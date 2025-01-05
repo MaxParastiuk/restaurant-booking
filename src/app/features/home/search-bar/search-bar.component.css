@@ -9,7 +9,7 @@
 }
 
 .selection-container {
-  background-color: rgb(97 97 97);
+  background-color: rgb(101 121 121);
   padding: 2px;
   border-radius: 3px;
   transition: 1s border-radius, 2s background-color;
@@ -50,4 +50,8 @@
 
 .no-wrap {
   white-space: nowrap;
+}
+
+.skeleton-item {
+  min-height: 24px;
 }
