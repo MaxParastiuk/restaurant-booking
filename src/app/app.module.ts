@@ -20,6 +20,8 @@ import { CommentComponent } from './features/restaurant/comment/comment.componen
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { CamelCaseToWordsPipe } from './shared/pipes/camel-case-to-words.pipe';
+import { PriceRangePipe } from './shared/pipes/price-range.pipe';
+import { AverageRatingPipe } from './shared/pipes/average-rating.pipe';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,8 @@ import { CamelCaseToWordsPipe } from './shared/pipes/camel-case-to-words.pipe';
     SearchResultComponent,
     BookingComponent,
     CamelCaseToWordsPipe,
+    PriceRangePipe,
+    AverageRatingPipe,
   ],
   imports: [
     BrowserModule,

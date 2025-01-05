@@ -4,7 +4,6 @@ export interface Restaurant {
   img: string;
   address: string;
   cuisineType: string;
-  priceRange: string;
   averageCheck: number;
   description: string;
   workingHours: WorkingHours;
@@ -18,7 +17,7 @@ interface WorkingHours {
   days: string[];
 }
 
-interface Review {
+export interface Review {
   reviewerName: string;
   rating: number;
   comment: string;
