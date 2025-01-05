@@ -5,13 +5,13 @@ import { Review } from 'src/app/models/restaurant.model';
   name: 'averageRating',
 })
 export class AverageRatingPipe implements PipeTransform {
-  transform(reviews: Review[]): number {
+  transform(reviews: Review[]): string {
     if (reviews.length === 0) {
-      return 0;
+      return 'empty';
     } else {
       var totalRating = reviews.reduce((sum, review) => sum + review.rating, 0);
       var averageRating = totalRating / reviews.length;
-      return averageRating;
+      return averageRating.toFixed(2);
     }
   }
 }
