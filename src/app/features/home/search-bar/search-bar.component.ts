@@ -13,8 +13,8 @@ import { FilterService } from './filter.service';
 })
 export class SearchBarComponent implements OnInit {
   isOptionsOpened: boolean = false;
+  isFiltersLoading: boolean = true;
   selectedOption: FilterKey = '';
-
   selectedFilters!: Record<string, string[]>;
   restaurantFilters: RestaurantFilters = {
     isOpen: false,
@@ -29,11 +29,12 @@ export class SearchBarComponent implements OnInit {
     this.filtersForm = this.fb.group({
       search: new FormControl(''),
       isOpen: new FormControl(false),
-      filterOptions: this.fb.group({}), // Пустая группа
+      filterOptions: this.fb.group({}), // empty group
     });
 
     this.filters.getRestaurantFilters().subscribe((filterOptions) => {
       this.restaurantFilters.filterOptions = filterOptions;
+      this.isFiltersLoading = false;
       this.selectedFilters =
         this.filters.initializeSelectedFilters(filterOptions);
 

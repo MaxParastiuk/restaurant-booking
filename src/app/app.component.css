@@ -14,6 +14,9 @@
   width: 100%;
   flex-basis: 16.6%;
 }
+.col-2-sceleton {
+  flex-basis: 50%;
+}
 .col-gap-2 {
   gap: 1.6%;
 }

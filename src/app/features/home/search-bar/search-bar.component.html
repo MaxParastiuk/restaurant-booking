@@ -12,7 +12,6 @@
       class="d-flex flex-row flex-wrap justify-content-center align-items-center col-gap-2 mt-5"
     >
       <li
-        *ngIf="restaurantFilters.isOpen !== undefined"
         class="form-check d-flex flex-row justify-content-around col-2-fx selection-container"
       >
         <input
@@ -23,21 +22,33 @@
         />
         <label for="is-open" class="form-check-label">open</label>
       </li>
-
-      <li
-        *ngFor="let option of objectKeys(restaurantFilters.filterOptions)"
-        (click)="toggleOptionsMenu(option)"
-        class="d-flex flex-row justify-content-around col-2-fx selection-container"
-      >
-        <div class="col-2-fx text-center">
+      <ng-container *ngIf="isFiltersLoading">
+        <li
+          *ngFor="let i of [1, 2, 3]"
+          class="d-flex flex-row justify-content-around col-2-fx selection-container"
+        >
           <div
-            class="d-flex width-full justify-content-center align-items-center"
-          >
-            <p class="no-wrap">{{ option | camelCaseToWords }}</p>
-            <i class="material-icons">keyboard_arrow_down</i>
+            class="w-100 skeleton-item text-center d-flex width-full justify-content-center align-items-center"
+          ></div>
+        </li>
+      </ng-container>
+
+      <ng-container *ngIf="!isFiltersLoading">
+        <li
+          *ngFor="let option of objectKeys(restaurantFilters.filterOptions)"
+          (click)="toggleOptionsMenu(option)"
+          class="d-flex flex-row justify-content-around col-2-fx selection-container"
+        >
+          <div class="col-2-fx text-center">
+            <div
+              class="d-flex width-full justify-content-center align-items-center"
+            >
+              <p class="no-wrap">{{ option | camelCaseToWords }}</p>
+              <i class="material-icons">keyboard_arrow_down</i>
+            </div>
           </div>
-        </div>
-      </li>
+        </li>
+      </ng-container>
     </ul>
   </div>
 
