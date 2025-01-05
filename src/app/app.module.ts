@@ -22,6 +22,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { CamelCaseToWordsPipe } from './shared/pipes/camel-case-to-words.pipe';
 import { PriceRangePipe } from './shared/pipes/price-range.pipe';
 import { AverageRatingPipe } from './shared/pipes/average-rating.pipe';
+import { PaginationComponent } from './features/home/search-results/pagination/pagination.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -37,6 +39,7 @@ import { AverageRatingPipe } from './shared/pipes/average-rating.pipe';
     CamelCaseToWordsPipe,
     PriceRangePipe,
     AverageRatingPipe,
+    PaginationComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,6 +49,7 @@ import { AverageRatingPipe } from './shared/pipes/average-rating.pipe';
     AngularFireDatabaseModule,
     ReactiveFormsModule,
     MatIconModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

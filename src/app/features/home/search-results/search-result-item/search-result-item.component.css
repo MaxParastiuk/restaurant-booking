@@ -1,5 +1,6 @@
 :host {
   color: black;
+  transition: opacity 0.3s ease-in-out;
 }
 .img-container {
   width: 100%;

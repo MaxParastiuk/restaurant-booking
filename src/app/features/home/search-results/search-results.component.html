@@ -1,6 +1,6 @@
-<div class="d-flex flex-row justify-content-between w-100">
+<div class="d-flex flex-row justify-content-between w-100" #resultsContainer>
   <div>
-    <h4>result: 0</h4>
+    <h4>result: {{ restaurants.length }}</h4>
   </div>
   <button>Look at the map</button>
 </div>
@@ -19,12 +19,19 @@
 
   <div
     *ngIf="!isLoading && !errorMessage && restaurants.length > 0"
-    class="d-flex flex-wrap col-3-gap-result"
+    class="d-flex flex-wrap col-3-gap-result justify-content-center"
   >
     <app-search-result-item
+      [@fadeInOut]
       class="col-3-result card-item"
-      *ngFor="let restaurant of restaurants"
+      *ngFor="let restaurant of currenPageRestaurants"
       [restaurant]="restaurant"
     ></app-search-result-item>
+    <app-pagination
+      [currentPage]="currentPage"
+      [total]="restaurants.length"
+      [limit]="limitPages"
+      (changePage)="changePage($event)"
+    ></app-pagination>
   </div>
 </div>
