@@ -1,18 +1,20 @@
-<div class="img-container">
-  <img [src]="restaurant.img" />
-</div>
-
-<div class="restaurant-descritpion">
-  <p class="price">{{ restaurant.averageCheck | priceRange }}</p>
-  <div class="title">
-    <p>{{ restaurant.name }}</p>
+<a [routerLink]="['/restaurant', restaurant.id]">
+  <div class="img-container">
+    <img [src]="restaurant.img" />
   </div>
-  <!-- need to be calculated based on price  -->
 
-  <div class="restInfo">
-    <!-- need to be calculated based on restaurant.review.rating  -->
-    <div class="review">{{ restaurant.reviews | averageRating }}</div>
-    <p>{{ restaurant.address }}</p>
-    <p>{{ restaurant.cuisineType }}</p>
+  <div class="restaurant-descritpion">
+    <p class="price">{{ restaurant.averageCheck | priceRange }}</p>
+    <div class="title">
+      <p>{{ restaurant.name }}</p>
+    </div>
+    <!-- need to be calculated based on price  -->
+
+    <div class="restInfo">
+      <!-- need to be calculated based on restaurant.review.rating  -->
+      <div class="review">{{ restaurant.reviews | averageRating }}</div>
+      <p>{{ restaurant.address }}</p>
+      <p>{{ restaurant.cuisineType }}</p>
+    </div>
   </div>
-</div>
+</a>

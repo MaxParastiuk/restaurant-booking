@@ -11,7 +11,7 @@ export interface Restaurant {
   reviews: Review[];
 }
 
-interface WorkingHours {
+export interface WorkingHours {
   open: string;
   close: string;
   days: string[];

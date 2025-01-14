@@ -55,3 +55,23 @@
 .skeleton-item {
   min-height: 24px;
 }
+
+.search-input {
+  width: 300px;
+  padding: 12px 20px;
+  margin: 10px 0;
+  box-sizing: border-box;
+  border: unset;
+  border-radius: 30px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+  font-family: inherit;
+  background-color: #fff;
+  color: #333;
+  transition: box-shadow 0.7s ease;
+}
+
+.search-input:focus {
+  box-shadow: 0 0 7px rgb(0 194 77);
+  outline: none;
+}

@@ -4,7 +4,8 @@ import {
   FilterKey,
   RestaurantFilters,
 } from 'src/app/models/restaurantFilter.model';
-import { FilterService } from './filter.service';
+import { FilterService } from 'src/app/shared/services/filter.service';
+import { RestaurantDbService } from 'src/app/shared/services/restaurant-db.service';
 
 @Component({
   selector: 'app-search-bar',
@@ -14,16 +15,15 @@ import { FilterService } from './filter.service';
 export class SearchBarComponent implements OnInit {
   isOptionsOpened: boolean = false;
   isFiltersLoading: boolean = true;
-  selectedOption: FilterKey = '';
-  selectedFilters!: Record<string, string[]>;
-  restaurantFilters: RestaurantFilters = {
-    isOpen: false,
-    search: '',
-    filterOptions: {},
-  };
+  selectedFilterOptions: string = '';
+  filterOptionsList!: Record<string, string[]>;
   filtersForm!: FormGroup;
 
-  constructor(private fb: FormBuilder, private filters: FilterService) {}
+  constructor(
+    private fb: FormBuilder,
+    private filters: FilterService,
+    private restaurantDb: RestaurantDbService,
+  ) {}
 
   ngOnInit(): void {
     this.filtersForm = this.fb.group({
@@ -32,15 +32,15 @@ export class SearchBarComponent implements OnInit {
       filterOptions: this.fb.group({}), // empty group
     });
 
-    this.filters.getRestaurantFilters().subscribe((filterOptions) => {
-      this.restaurantFilters.filterOptions = filterOptions;
+    this.restaurantDb.getFiltersOptions().subscribe((filterOptions) => {
+      this.filterOptionsList = filterOptions;
+      this.filters.setFiltersOptions(filterOptions);
       this.isFiltersLoading = false;
-      this.selectedFilters =
-        this.filters.initializeSelectedFilters(filterOptions);
 
-      // dynamic adding of all filtering properties to the form
+      // creating a dynamic form group based on filter options
       const filterOptionsGroup = this.createFilterOptionsGroup(filterOptions);
 
+      // setting up the created form group instead of the empty
       this.filtersForm.setControl('filterOptions', filterOptionsGroup);
 
       this.filtersForm.valueChanges.subscribe((formValue) => {
@@ -51,6 +51,7 @@ export class SearchBarComponent implements OnInit {
     });
   }
 
+  // dynamic FormGroup - filter options
   createFilterOptionsGroup(filterOptions: Record<string, string[]>): FormGroup {
     const filterGroup = this.fb.group({});
 
@@ -72,24 +73,25 @@ export class SearchBarComponent implements OnInit {
   }
 
   onSubmit() {
-    this.selectedFilters = this.filters.extractFilters(
-      this.filtersForm,
-      this.restaurantFilters.filterOptions,
-    );
+    this.filters.setSelectedFilters(this.filtersForm);
   }
 
   // method to restore the previous selection of options
   restoreFormState(): void {
     const savedForm = localStorage.getItem('filtersForm');
     if (savedForm) {
-      const formValue = JSON.parse(savedForm);
+      try {
+        const formValue = JSON.parse(savedForm);
 
-      this.filtersForm.patchValue(formValue);
+        this.filtersForm.patchValue(formValue);
 
-      Object.keys(formValue.filterOptions).forEach((key) => {
-        const formArray = this.getFormArray(key);
-        formArray.patchValue(formValue.filterOptions[key]);
-      });
+        Object.keys(formValue.filterOptions).forEach((key) => {
+          const formArray = this.getFormArray(key);
+          formArray.patchValue(formValue.filterOptions[key]);
+        });
+      } catch (error) {
+        console.error('Failed to restore form state:', error);
+      }
     }
   }
 
@@ -99,14 +101,14 @@ export class SearchBarComponent implements OnInit {
     ) as FormArray;
   }
 
-  toggleOptionsMenu(value: FilterKey) {
+  toggleOptionsMenu(value: string) {
     if (
       !this.isOptionsOpened ||
-      (this.selectedOption === value && this.isOptionsOpened)
+      (this.selectedFilterOptions === value && this.isOptionsOpened)
     ) {
       this.isOptionsOpened = !this.isOptionsOpened;
     }
-    this.selectedOption = value;
+    this.selectedFilterOptions = value;
   }
 
   // method to iterate over the keys in the template

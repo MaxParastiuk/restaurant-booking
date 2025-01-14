@@ -5,3 +5,9 @@ export interface RestaurantFilters {
 }
 
 export type FilterKey = string;
+
+export enum FilterKeyEnum {
+  Cuisine = 'cuisine',
+  PriceRange = 'priceRange',
+  Specialties = 'specialties',
+}
