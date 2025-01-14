@@ -9,6 +9,7 @@ import { Restaurant } from 'src/app/models/restaurant.model';
 import { Subscription } from 'rxjs';
 import { RestaurantDbService } from 'src/app/shared/services/restaurant-db.service';
 import { animate, style, transition, trigger } from '@angular/animations';
+import { FilterService } from 'src/app/shared/services/filter.service';
 
 @Component({
   selector: 'app-search-results',
@@ -35,15 +36,17 @@ export class SearchResultComponent implements OnInit, OnDestroy {
   resultsContainer!: ElementRef;
   private restaurantsSubscription: Subscription = new Subscription();
 
-  constructor(private resultSerivce: RestaurantDbService) {}
+  constructor(private filterService: FilterService) {}
 
   ngOnInit(): void {
-    this.restaurantsSubscription = this.resultSerivce
+    this.restaurantsSubscription = this.filterService
       .getRestaurants()
       .subscribe({
         next: (data) => {
           this.restaurants = data;
           this.isLoading = false;
+          // reset currentPage
+          this.currentPage = 1;
           this.updateCurrentPageRestaurants();
         },
         error: (err) => {

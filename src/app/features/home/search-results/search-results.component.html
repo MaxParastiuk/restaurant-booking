@@ -17,17 +17,18 @@
     <p>Restaurants aren't found</p>
   </div>
 
-  <div
-    *ngIf="!isLoading && !errorMessage && restaurants.length > 0"
-    class="d-flex flex-wrap col-3-gap-result justify-content-center"
-  >
-    <app-search-result-item
-      [@fadeInOut]
-      class="col-3-result card-item"
-      *ngFor="let restaurant of currenPageRestaurants"
-      [restaurant]="restaurant"
-    ></app-search-result-item>
+  <div *ngIf="!isLoading && !errorMessage && restaurants.length > 0">
+    <div class="d-flex flex-wrap col-3-gap-result">
+      <app-search-result-item
+        [@fadeInOut]
+        class="col-3-result card-item"
+        *ngFor="let restaurant of currenPageRestaurants"
+        [restaurant]="restaurant"
+      ></app-search-result-item>
+    </div>
+
     <app-pagination
+      class="d-flex justify-content-center"
       [currentPage]="currentPage"
       [total]="restaurants.length"
       [limit]="limitPages"

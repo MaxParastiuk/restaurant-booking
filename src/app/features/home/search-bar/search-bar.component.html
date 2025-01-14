@@ -4,7 +4,13 @@
     class="text-center d-flex gap-3 flex-row flex-wrap justify-content-center align-items-center"
   >
     <label id="name">Search</label>
-    <input formControlName="search" name="search" id="search" type="search" />
+    <input
+      class="search-input"
+      formControlName="search"
+      name="search"
+      id="search"
+      type="search"
+    />
     <button class="button px-4 py-2" type="submit">Search</button>
   </div>
   <div>
@@ -35,7 +41,7 @@
 
       <ng-container *ngIf="!isFiltersLoading">
         <li
-          *ngFor="let option of objectKeys(restaurantFilters.filterOptions)"
+          *ngFor="let option of objectKeys(filterOptionsList)"
           (click)="toggleOptionsMenu(option)"
           class="d-flex flex-row justify-content-around col-2-fx selection-container"
         >
@@ -53,14 +59,17 @@
   </div>
 
   <div
-    *ngIf="isOptionsOpened && selectedOption"
+    *ngIf="isOptionsOpened && selectedFilterOptions"
     class="position-absolute bottom-offset options-container"
   >
     <div class="options-list" formGroupName="filterOptions">
-      <ul class="d-flex col-gap-3 flex-wrap" [formArrayName]="selectedOption">
+      <ul
+        class="d-flex col-gap-3 flex-wrap"
+        [formArrayName]="selectedFilterOptions"
+      >
         <li
           *ngFor="
-            let item of restaurantFilters.filterOptions[selectedOption];
+            let item of filterOptionsList[selectedFilterOptions];
             let i = index
           "
           class="d-flex options-item-gap col-3-fx"

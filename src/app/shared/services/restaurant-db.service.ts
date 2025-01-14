@@ -22,7 +22,7 @@ export class RestaurantDbService {
       );
   }
 
-  getFilters(): Observable<Record<string, string[]>> {
+  getFiltersOptions(): Observable<Record<string, string[]>> {
     return this.db
       .object<Record<string, string[]>>('/filterOptions')
       .valueChanges()
