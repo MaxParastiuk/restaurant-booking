@@ -35,4 +35,21 @@ export class RestaurantDbService {
         }),
       );
   }
+  getRestaurantById(id: string): Observable<Restaurant | null> {
+    return this.db
+      .list<Restaurant>('/restaurants')
+      .valueChanges()
+      .pipe(
+        map((restaurants) => {
+          // Ищем ресторан с соответствующим id
+          return (
+            restaurants.find((restaurant) => restaurant.id === +id) || null
+          );
+        }),
+        catchError((error) => {
+          console.error('Error fetching restaurant by ID:', error);
+          return of(null);
+        }),
+      );
+  }
 }

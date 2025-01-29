@@ -24,6 +24,7 @@ import { PriceRangePipe } from './shared/pipes/price-range.pipe';
 import { AverageRatingPipe } from './shared/pipes/average-rating.pipe';
 import { PaginationComponent } from './features/home/search-results/pagination/pagination.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ShortDayPipe } from './shared/pipes/short-day.pipe';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     PriceRangePipe,
     AverageRatingPipe,
     PaginationComponent,
+    ShortDayPipe,
   ],
   imports: [
     BrowserModule,

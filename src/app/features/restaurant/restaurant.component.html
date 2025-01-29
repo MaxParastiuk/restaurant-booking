@@ -1,47 +1,103 @@
-<div>
-  <div>name</div>
-  <div>
-    <p>telefon</p>
-    <p>adress</p>
-    <button>book</button>
-    <button>book a banquet</button>
-  </div>
+<div *ngIf="loading" class="w-100">
+  <p>Loading...</p>
 </div>
-<div>
-  <h4>Information</h4>
-  <button>to favorite</button>
-</div>
-<div class="scrollbar-imgs">
-  //for each
-  <img src="#" alt="" />
-</div>
-<div>Description ....</div>
-<div>
-  <div>
-    <h4>avarge price:</h4>
-    <p>for each</p>
-  </div>
-  <div>
-    <h4>Reason of visiting:</h4>
-    <p>for each</p>
-  </div>
-  <div>
-    <h4>cousin:</h4>
-    <p>for each</p>
-  </div>
-</div>
-<div>
-  <h4>time of work:</h4>
-  <div>days/time</div>
-</div>
-<div>
-  <div>name</div>
-  <div>map</div>
-  <div>address</div>
-  <button>book</button>
-  <button>book a banquet</button>
-</div>
-<div>similar restaurants</div>
 
-//for each
-<app-comment></app-comment>
+<div *ngIf="error && !loading" class="w-100">
+  <p>{{ error }}</p>
+</div>
+
+<div *ngIf="restaurant && !loading && !error" class="w-100">
+  <div
+    class="main-banner"
+    [style.backgroundImage]="'url(' + restaurant.img + ')'"
+  >
+    <div class="blHolder"></div>
+    <div class="restaurant-title col-8 ps-5 pt-5 flex-shrink-1">
+      {{ restaurant.name }}
+    </div>
+    <div class="col-4 z-1 flex-shrink-1 m-3">
+      <div
+        class="booking-details d-flex flex-column justify-content-around p-3 align-items-center"
+      >
+        <p>+34324323324</p>
+        <p>{{ restaurant.address }}</p>
+        <button class="booking-btn">book</button>
+      </div>
+    </div>
+  </div>
+  <div class="rst-content">
+    <div
+      class="content-headline d-flex justify-content-between flex-row my-2 p-3"
+    >
+      <h3 class="information-title">Information</h3>
+      <button class="favorite-button">
+        Add to Favorite <span class="icon material-icons">favorite</span>
+      </button>
+    </div>
+    <div class="scrollbar-imgs">
+      HERE IMAGE SCROLLBAR
+      <img src="#" alt="" />
+    </div>
+
+    <div class="main-content d-flex flex-row my-3">
+      <div class="main-column col-8">
+        <div class="rst-description">
+          <h4 class="description-title">Description</h4>
+          <p>
+            {{
+              isExpanded
+                ? restaurant.description
+                : (restaurant.description | slice : 0 : 300)
+            }}{{
+              restaurant.description.length > 300 && !isExpanded ? '...' : ''
+            }}
+          </p>
+          <button
+            *ngIf="restaurant.description.length > 300"
+            (click)="toggleDescription()"
+            class="toggle-btn"
+          >
+            <span class="material-icons">
+              {{ isExpanded ? 'expand_less' : 'expand_more' }}
+            </span>
+          </button>
+        </div>
+        <div class="rst-details d-flex my-3 p-3 flex-wrap">
+          <div class="col-6 detail-item">
+            <span class="material-icons ic-detail">monetization_on</span>
+            <h6>Average price:</h6>
+            <p>{{ restaurant.averageCheck }}$</p>
+          </div>
+          <div class="col-6 detail-item">
+            <span class="material-icons ic-detail">restaurant</span>
+            <h6>Cuisine:</h6>
+            <p>{{ restaurant.cuisineType }}</p>
+          </div>
+        </div>
+        <h6 class="title-time-container">time of work:</h6>
+        <div class="time-container py-3 px-3">
+          <div class="openHours d-flex justify-content-between">
+            <div *ngFor="let day of restaurant.workingHours.days">
+              <div class="text-center">{{ day | shortDay }}</div>
+              <p class="text-center">{{ restaurant.workingHours.open }}</p>
+              <p class="text-center">{{ restaurant.workingHours.close }}</p>
+            </div>
+          </div>
+        </div>
+        <div>similar restaurants</div>
+      </div>
+      <div class="side-column col-3-5">
+        <div>
+          <div>name</div>
+          <div>map</div>
+          <div>address</div>
+          <button>book</button>
+          <button>book a banquet</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  //for each
+  <app-comment></app-comment>
+</div>

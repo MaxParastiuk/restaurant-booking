@@ -1,0 +1,324 @@
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 30px;
+  margin: 20px auto; /* Центрирование с отступом сверху */
+  color: #000;
+  border-radius: 12px; /* Закругленные углы */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Тень для глубины */
+  font-family: 'Montserrat', sans-serif;
+}
+
+.main-banner {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  border-radius: 15px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  color: #fff;
+  height: 250px;
+}
+
+.booking-details {
+  color: black;
+  row-gap: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.06);
+  border-radius: 16px;
+  background-color: #f8f8f8;
+}
+
+.scrollbar-imgs {
+  background: gray;
+  width: 100%;
+  height: 150px;
+}
+
+.main-content {
+  gap: 4.3%;
+  background-color: #bcc6b9;
+  border-radius: 16px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.06);
+  padding: 24px;
+  max-width: 100%;
+  transition: box-shadow 0.3s ease;
+}
+
+.rst-details {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.06);
+  border-radius: 16px;
+  background-color: #ebf6f1;
+  row-gap: 30px;
+}
+.side-column {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.06);
+  padding: 30px;
+  display: flex;
+  border-radius: 16px;
+  justify-content: center;
+  flex-direction: column;
+  background-color: azure;
+  transition: box-shadow 0.3s ease;
+}
+
+.time-container {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.06);
+  border-radius: 16px;
+  background-color: #ebf6f1;
+}
+
+.col-3-5 {
+  width: 29%;
+}
+
+.restaurant-title {
+  position: relative;
+  font-size: 3rem;
+  font-family: 'Playfair Display', serif;
+  letter-spacing: 2px;
+  margin: 0;
+  animation: fadeInDown 1.2s ease-out;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.9);
+  z-index: 1;
+}
+
+.blHolder {
+  border-radius: 15px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background-color: black;
+  opacity: 0.3;
+  filter: alpha(opacity = 60);
+  top: 0px;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.booking-btn {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #dc00008a;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 8px 24px;
+  border-radius: 8px;
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.booking-btn:hover {
+  background-color: #ff4e4e;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+.booking-btn:active {
+  background-color: #e64545;
+  transform: translateY(0);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.booking-btn:focus {
+  outline: 2px solid #ffafaf;
+  outline-offset: 2px;
+}
+
+.favorite-button {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #ffc107;
+  color: #333;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 7px 18px;
+  border: 2px solid transparent;
+  border-radius: 50px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.favorite-button:hover {
+  background-color: #ffca2c;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+.favorite-button:active {
+  background-color: #e6ac00;
+  transform: translateY(1px);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+.favorite-button:focus {
+  outline: none;
+  border: 2px solid #ffd54f; /* Видимая обводка */
+}
+
+.favorite-button .icon {
+  font-size: 20px;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.favorite-button:hover .icon {
+  color: #000;
+}
+
+.information-title {
+  font-size: 30px;
+  font-weight: 700;
+  color: #333;
+  text-align: center;
+  letter-spacing: 1px;
+  position: relative;
+}
+
+.information-title::after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 3px;
+  background-color: #ffc107;
+  margin: 5px auto 0;
+  border-radius: 2px;
+}
+
+.description-title {
+  font-size: 26px;
+  font-weight: 700;
+  color: #333;
+  text-align: center;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.description-title::after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 3px;
+  background-color: #000;
+  margin: 5px auto 0;
+  border-radius: 2px;
+}
+
+.description-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-height: 60px;
+  display: block;
+}
+
+.description-text.expanded {
+  white-space: normal;
+  max-height: none;
+}
+
+.toggle-btn {
+  display: block;
+  width: 100%;
+  text-align: center;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.9s;
+}
+
+.toggle-btn:hover {
+  background-color: #211e15;
+}
+
+.material-icons {
+  font-size: 24px;
+}
+
+.rst-details {
+  background: #eef5f0;
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.icon {
+  font-size: 28px;
+  color: #ff9800;
+  margin-right: 10px;
+}
+
+h6 {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  margin: 0;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+}
+
+.detail-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+}
+
+.ic-detail {
+  position: absolute;
+  left: -8px;
+  width: 18px;
+  filter: invert(65%) sepia(13%) saturate(297%) hue-rotate(174deg)
+    brightness(94%) contrast(88%);
+  font-size: 20px;
+}
+
+.title-time-container {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  text-transform: uppercase;
+  letter-spacing: 0px;
+  padding: 5px 4px;
+  display: inline-block;
+  border-radius: 6px;
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.15);
+  position: relative;
+  margin-bottom: 10px;
+}
+.title-time-container::before {
+  content: '⏳';
+  margin-right: 8px;
+}

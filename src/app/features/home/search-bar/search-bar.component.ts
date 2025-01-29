@@ -73,6 +73,7 @@ export class SearchBarComponent implements OnInit {
   }
 
   onSubmit() {
+    this.isOptionsOpened = false;
     this.filters.setSelectedFilters(this.filtersForm);
   }
 

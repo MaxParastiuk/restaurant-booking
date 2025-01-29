@@ -1,4 +1,5 @@
 :host {
+  display: block;
   width: 100%;
   background-image: url('/assets/images/background.jpg');
   border-radius: 15px;

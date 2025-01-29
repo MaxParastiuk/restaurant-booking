@@ -1,4 +1,4 @@
-:host .custom-container {
+:host .inner-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
