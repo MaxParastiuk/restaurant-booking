@@ -4,12 +4,11 @@
   align-items: center;
   width: 100%;
   padding: 15px 30px;
-  margin: 20px auto; /* Центрирование с отступом сверху */
-  background-color: #c8c8c8; /* Тёплый фиолетовый цвет */
+  margin: 20px auto;
+  background-color: #c8c8c8;
   color: #fff;
-  border-radius: 12px; /* Закругленные углы */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Тень для глубины */
-  max-width: 900px; /* Максимальная ширина для центрирования */
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   flex-direction: column;
 }
 .col-3-result {

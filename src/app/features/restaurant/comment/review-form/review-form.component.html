@@ -1,0 +1,52 @@
+<div *ngIf="isLoggedIn" class="add-review border p-3 mt-3">
+  <h5>Leav the comment</h5>
+
+  <form [formGroup]="reviewForm" (ngSubmit)="addReview()">
+    <textarea
+      class="form-control my-2"
+      placeholder="Your comment"
+      formControlName="comment"
+    ></textarea>
+    <div
+      *ngIf="
+        reviewForm.controls['comment'].invalid &&
+        (reviewForm.controls['comment'].touched || submitted)
+      "
+      class="text-danger"
+    >
+      enter at least 3 characters
+    </div>
+
+    <div class="rating d-flex align-items-center">
+      <label class="me-2">Rating:</label>
+      <div class="stars">
+        <span
+          *ngFor="let star of [1, 2, 3, 4, 5]; let i = index"
+          (click)="setRating(star)"
+          (mouseover)="hoverRating = star"
+          (mouseleave)="hoverRating = rating"
+        >
+          <mat-icon
+            [ngClass]="{
+              filled: star <= (hoverRating || rating),
+              empty: star > (hoverRating || rating)
+            }"
+          >
+            star
+          </mat-icon>
+        </span>
+      </div>
+    </div>
+    <div
+      *ngIf="submitted && reviewForm.controls['rating'].invalid"
+      class="text-danger"
+    >
+      select the number of stars
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-2">Add review</button>
+  </form>
+</div>
+<p *ngIf="!isLoggedIn" class="denied-comment denietext-muted">
+  Please log in to leave a comment
+</p>

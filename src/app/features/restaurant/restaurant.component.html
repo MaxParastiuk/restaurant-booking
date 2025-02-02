@@ -76,8 +76,11 @@
         </div>
         <h6 class="title-time-container">time of work:</h6>
         <div class="time-container py-3 px-3">
-          <div class="openHours d-flex justify-content-between">
-            <div *ngFor="let day of restaurant.workingHours.days">
+          <div class="openHours d-flex flex-wrap">
+            <div
+              *ngFor="let day of restaurant.workingHours.days"
+              class="сol-1-7"
+            >
               <div class="text-center">{{ day | shortDay }}</div>
               <p class="text-center">{{ restaurant.workingHours.open }}</p>
               <p class="text-center">{{ restaurant.workingHours.close }}</p>
@@ -86,18 +89,33 @@
         </div>
         <div>similar restaurants</div>
       </div>
-      <div class="side-column col-3-5">
-        <div>
-          <div>name</div>
-          <div>map</div>
-          <div>address</div>
-          <button>book</button>
-          <button>book a banquet</button>
+      <div class="side-column col-3-5 justify-content-start">
+        <app-restaurant-map
+          [latitude]="restaurant.location.lat"
+          [longitude]="restaurant.location.lng"
+        ></app-restaurant-map>
+        <div class="side-info d-flex flex-column justify-content-center">
+          <div class="side-title">{{ restaurant.name }}</div>
+          <div class="side-address text-center">{{ restaurant.address }}</div>
+          <button class="booking-btn text-center">book</button>
         </div>
       </div>
     </div>
   </div>
 
-  //for each
-  <app-comment></app-comment>
+  <div class="comments-section mt-4">
+    <h4 class="reviwe-title">Reviews</h4>
+    <div *ngIf="getReviews().length > 0; else noReviews">
+      <div *ngFor="let review of getReviews()">
+        <app-comment [review]="review"></app-comment>
+      </div>
+    </div>
+    <ng-template #noReviews>
+      <p>No reviews yet.</p>
+    </ng-template>
+    <app-review-form
+      [isLoggedIn]="isLoggedIn"
+      [restaurantId]="restaurant.key"
+    ></app-review-form>
+  </div>
 </div>

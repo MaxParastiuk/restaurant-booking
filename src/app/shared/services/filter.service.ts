@@ -138,7 +138,6 @@ export class FilterService {
           if (key === FilterKeyEnum.PriceRange) {
             return values.some((range) => {
               const [min, max] = range.replace('$', '').split('-').map(Number);
-              console.log(min, max);
               return (
                 restaurant.averageCheck >= min && restaurant.averageCheck <= max
               );

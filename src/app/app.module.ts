@@ -25,6 +25,8 @@ import { AverageRatingPipe } from './shared/pipes/average-rating.pipe';
 import { PaginationComponent } from './features/home/search-results/pagination/pagination.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ShortDayPipe } from './shared/pipes/short-day.pipe';
+import { RestaurantMapComponent } from './features/restaurant/restaurant-map/restaurant-map.component';
+import { ReviewFormComponent } from './features/restaurant/comment/review-form/review-form.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +44,8 @@ import { ShortDayPipe } from './shared/pipes/short-day.pipe';
     AverageRatingPipe,
     PaginationComponent,
     ShortDayPipe,
+    RestaurantMapComponent,
+    ReviewFormComponent,
   ],
   imports: [
     BrowserModule,

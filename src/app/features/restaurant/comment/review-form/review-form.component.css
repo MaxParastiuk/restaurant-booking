@@ -1,0 +1,66 @@
+.add-review {
+  background: #fefefe;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+  border-radius: 10px;
+}
+
+.add-review h5 {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.form-control {
+  border-radius: 8px;
+  border: 1px solid #ced4da;
+  padding: 10px;
+}
+
+.form-control:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+.stars mat-icon {
+  font-size: 30px;
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.stars mat-icon.filled {
+  color: #ffc107;
+}
+
+.stars mat-icon.empty {
+  color: #dcdcdc;
+}
+.stars mat-icon:hover {
+  transform: scale(1.2);
+}
+
+.stars mat-icon:active {
+  transform: scale(1.1);
+}
+
+.denied-comment {
+  background: #fefefe;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+  border-radius: 10px;
+}

@@ -3,11 +3,10 @@
   justify-content: space-between;
   align-items: center;
   padding: 15px 30px;
-  margin: 20px auto; /* Центрирование с отступом сверху */
+  margin: 20px auto;
   color: #fff;
-  border-radius: 12px; /* Закругленные углы */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Тень для глубины */
-  max-width: 900px; /* Максимальная ширина для центрирования */
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   flex-direction: column;
 }
 

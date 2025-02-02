@@ -1,4 +1,5 @@
 export interface Restaurant {
+  key: string;
   id: number;
   name: string;
   img: string;
@@ -9,6 +10,7 @@ export interface Restaurant {
   workingHours: WorkingHours;
   features: string[];
   reviews: Review[];
+  location: Coordinate;
 }
 
 export interface WorkingHours {
@@ -22,4 +24,9 @@ export interface Review {
   rating: number;
   comment: string;
   date: string;
+}
+
+export interface Coordinate {
+  lat: number;
+  lng: number;
 }

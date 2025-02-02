@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { Restaurant } from 'src/app/models/restaurant.model';
+import { Restaurant, Review } from 'src/app/models/restaurant.model';
 import { RestaurantDbService } from 'src/app/shared/services/restaurant-db.service';
 
 @Component({
@@ -15,6 +15,7 @@ export class RestaurantComponent implements OnInit, OnDestroy {
   error: string | null = null;
   private restaurantSub: Subscription | null = null;
   isExpanded: boolean = false;
+  isLoggedIn: boolean = true;
 
   constructor(
     private route: ActivatedRoute,
@@ -26,14 +27,13 @@ export class RestaurantComponent implements OnInit, OnDestroy {
       const restaurantId = params['id'];
       if (restaurantId) {
         this.loading = true;
-        console.log('id', restaurantId);
         this.restaurantSub = this.dbService
           .getRestaurantById(restaurantId)
           .subscribe({
             next: (data) => {
               this.restaurant = data;
-              console.log(data, 'RESTAUR');
               this.loading = false;
+              console.log(typeof data?.reviews);
             },
             error: () => {
               this.error = `Error fetching data restaurant. ID: ${restaurantId}`;
@@ -44,10 +44,25 @@ export class RestaurantComponent implements OnInit, OnDestroy {
         this.error = 'the restaurant ID is missing';
       }
     });
+    console.log(
+      this.restaurant?.reviews.length,
+      this.restaurant?.reviews,
+      'review restaurant',
+    );
   }
 
   toggleDescription() {
     this.isExpanded = !this.isExpanded;
+  }
+
+  hasReviews(): boolean {
+    return (
+      this.restaurant!.reviews &&
+      Object.keys(this.restaurant!.reviews).length > 0
+    );
+  }
+  getReviews() {
+    return Object.values(this.restaurant!.reviews || {});
   }
 
   ngOnDestroy(): void {

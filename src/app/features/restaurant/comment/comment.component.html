@@ -1,1 +1,14 @@
-<p>comment works!</p>
+<div class="p-3 border rounded my-2">
+  <div class="review-card">
+    <div class="d-flex justify-content-between">
+      <h5 class="author">{{ review.reviewerName }}</h5>
+      <span class="text-muted">{{ review.date | date : 'longDate' }}</span>
+    </div>
+    <p class="text">{{ review.comment }}</p>
+    <p class="rating">
+      <span *ngFor="let star of getStars(review.rating)">⭐</span>
+      <span *ngFor="let emptyStar of getEmptyStars(review.rating)">☆</span>
+      {{ review.rating }}/5
+    </p>
+  </div>
+</div>

@@ -45,6 +45,7 @@ export class SearchResultComponent implements OnInit, OnDestroy {
         next: (data) => {
           this.restaurants = data;
           this.isLoading = false;
+          console.log(data, 'restaurants');
           // reset currentPage
           this.currentPage = 1;
           this.updateCurrentPageRestaurants();
