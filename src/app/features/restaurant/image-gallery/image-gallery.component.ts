@@ -13,14 +13,14 @@ export class ImageGalleryComponent {
   onLeftArrowClick(): void {
     if (this.currentIndex > 0) {
       this.currentIndex--;
-      this.translateX += 33.3;
+      this.translateX += 33.4;
     }
   }
 
   onRightArrowClick(): void {
     if (this.currentIndex < this.images.length - 3) {
       this.currentIndex++;
-      this.translateX -= 33.3;
+      this.translateX -= 33.4;
     }
   }
 }
