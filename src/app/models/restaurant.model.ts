@@ -9,6 +9,7 @@ export interface Restaurant {
   description: string;
   workingHours: WorkingHours;
   features: string[];
+  gallery: string[];
   reviews: Review[];
   location: Coordinate;
 }

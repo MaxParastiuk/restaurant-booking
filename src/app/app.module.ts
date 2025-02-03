@@ -27,6 +27,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ShortDayPipe } from './shared/pipes/short-day.pipe';
 import { RestaurantMapComponent } from './features/restaurant/restaurant-map/restaurant-map.component';
 import { ReviewFormComponent } from './features/restaurant/comment/review-form/review-form.component';
+import { ImageGalleryComponent } from './features/restaurant/image-gallery/image-gallery.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { ReviewFormComponent } from './features/restaurant/comment/review-form/r
     ShortDayPipe,
     RestaurantMapComponent,
     ReviewFormComponent,
+    ImageGalleryComponent,
   ],
   imports: [
     BrowserModule,

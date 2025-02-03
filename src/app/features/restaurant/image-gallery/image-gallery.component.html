@@ -1,0 +1,22 @@
+<div class="slider-container">
+  <div
+    id="slider"
+    class="slider"
+    [ngStyle]="{
+      transform: 'translateX(' + translateX + '%)',
+      transition: 'transform 0.3s ease-in-out'
+    }"
+  >
+    <div class="slide">
+      <div *ngFor="let image of images" class="slide-holder">
+        <img class="slide-bg bg-previous" [src]="image" alt="gallery" />
+      </div>
+    </div>
+  </div>
+</div>
+<span href="#" class="arrow" id="left-arrow" (click)="onLeftArrowClick()">
+  <i class="material-icons">chevron_left</i>
+</span>
+<span href="#" class="arrow" id="right-arrow" (click)="onRightArrowClick()">
+  <i class="material-icons">chevron_right</i>
+</span>
